@@ -1,0 +1,15 @@
+## Build image
+docker build --no-cache -t golang:v1 .
+
+## Docker repo build
+docker build -t harshmanvar/golang-rajkot-demo:v1 .
+docker push harshmanvar/golang-rajkot-demo:v1
+
+## Run the image
+docker run -d -p 8080:8080 golang:v1
+
+## Check docker logs
+docker logs <container id>
+
+## Kill Container
+docker kill <Container id>

@@ -1,0 +1,12 @@
+## Pull Nginx image
+docker pull nginx
+
+## Run nginx image
+docker run -p 9000:80 nginx
+
+## Pull Elasticsearch database image
+docker pull arm64v8/elasticsearch:7.17.8
+
+## Run Elasticsearch database image
+docker run -d -p 5000:9200 -e "discovery.type=single-node" arm64v8/elasticsearch:7.17.8
+
