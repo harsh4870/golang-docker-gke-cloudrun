@@ -1,0 +1,14 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  entrypoint: 'bash'
+  args: ['-c', 'docker login --username=$USERNAME --password=$PASSWORD']
+- name: "gcr.io/cloud-builders/docker"
+  args: ["build", "-t", "harshmanvar/golang-rajkot-demo:$SHORT_SHA", "."]
+- name: "gcr.io/cloud-builders/docker"
+  args: ["push", "harshmanvar/golang-rajkot-demo:$SHORT_SHA"]
+- name: "gcr.io/cloud-builders/gke-deploy"
+  args:
+  - run
+  - --image=harshmanvar/golang-rajkot-demo:$SHORT_SHA
+  - --location=asia-east1-a
+  - --cluster=cluster-1
