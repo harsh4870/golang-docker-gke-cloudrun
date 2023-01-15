@@ -1,0 +1,5 @@
+## YAML file deployment.yaml
+kubectl appply -f deployment.yaml
+
+## scale the deployment to 7 replicas it should have fail due to Node resource limit
+kubectl scale deployment go-deployment --replicas=7
