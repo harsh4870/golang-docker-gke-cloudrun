@@ -10,5 +10,6 @@ steps:
   args:
   - run
   - --image=harshmanvar/golang-rajkot-demo:$SHORT_SHA
+  - --expose=80
   - --location=asia-east1-a
   - --cluster=cluster-1
