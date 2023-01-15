@@ -21,17 +21,19 @@ metadata:
   labels:
     app: hello-rajkot
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: hello-rajkot
+      tier: backend
   template:
     metadata:
       labels:
         app: hello-rajkot
+        tier: backend
     spec:
       containers:
       - name: hello-container
-        image: harshmanvar/golang-rajkot-demo:v1
+        image: harshmanvar/golang-rajkot-demo:7a57d12
         ports:
         - containerPort: 8080
