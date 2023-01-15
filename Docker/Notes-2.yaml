@@ -6,10 +6,21 @@ docker build -t harshmanvar/golang-rajkot-demo:v1 .
 docker push harshmanvar/golang-rajkot-demo:v1
 
 ## Run the image
-docker run -d -p 8080:8080 golang:v1
+docker run --name go-rajkot -d -p 8080:8080 golang:v1
+
+## Load testing Fortio
+~/go/bin/fortio server -http-port 0.0.0.0:5000
+UI: http://localhost:5000/fortio/
+
+10000/5000
+
+docker stats go-rajkot
 
 ## Check docker logs
-docker logs <container id>
+docker logs go-rajkot
 
 ## Kill Container
-docker kill <Container id>
+docker kill go-rajkot
+
+## Remove all container
+docker rm -f $(docker ps -aq)
