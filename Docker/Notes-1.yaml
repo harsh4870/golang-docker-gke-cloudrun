@@ -1,12 +1,26 @@
-## Pull Nginx image
-docker pull nginx
+## Build image
+docker build --no-cache -t golang:v1 .
 
-## Run nginx image
-docker run -p 9000:80 nginx
+## Docker repo build
+docker build -t harshmanvar/golang-rajkot-demo:v1 .
+docker push harshmanvar/golang-rajkot-demo:v1
 
-## Pull Elasticsearch database image
-docker pull arm64v8/elasticsearch:7.17.8
+## Run the image
+docker run --name go-rajkot -d -p 8080:8080 golang:v1
 
-## Run Elasticsearch database image
-docker run -d -p 5000:9200 -e "discovery.type=single-node" arm64v8/elasticsearch:7.17.8
+## Load testing Fortio
+~/go/bin/fortio server -http-port 0.0.0.0:5000
+UI: http://localhost:5000/fortio/
 
+10000/5000
+
+docker stats go-rajkot
+
+## Check docker logs
+docker logs go-rajkot
+
+## Kill Container
+docker kill go-rajkot
+
+## Remove all container
+docker rm -f $(docker ps -aq)
