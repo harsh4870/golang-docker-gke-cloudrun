@@ -1,6 +1,6 @@
 steps:
   - name: "gcr.io/cloud-builders/docker"
-    args: ["build", "-t", "$_GCR_HOSTNAME/$PROJECT_ID/$_REPO_NAME:$SHORT_SHA", "-f", "./Docker/Dockerfile", "./Docker"]
+    args: ["build", "-t", "$_GCR_HOSTNAME/$PROJECT_ID/$_REPO_NAME:$SHORT_SHA", "-f", "./Docker/Go-lang/Dockerfile", "./Docker/Go-lang"]
   - name: "gcr.io/cloud-builders/docker"
     args: ["push", "$_GCR_HOSTNAME/$PROJECT_ID/$_REPO_NAME:$SHORT_SHA"]
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
