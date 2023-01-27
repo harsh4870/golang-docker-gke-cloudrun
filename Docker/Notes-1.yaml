@@ -1,12 +1,16 @@
 ## Build image
-docker build --no-cache -t golang:v1 .
-
-## Docker repo build
-docker build -t harshmanvar/golang-rajkot-demo:v1 .
-docker push harshmanvar/golang-rajkot-demo:v1
-
+docker build --no-cache -t nodejs:v1 .
 ## Run the image
-docker run --name go-rajkot -d -p 8080:8080 golang:v1
+docker run --name nodejs -d -p 3000:3000 nodejs:v1
+
+## Check docker logs
+docker logs nodejs
+
+## Check CPU & Memory
+docker stats nodejs
+
+## Kill Container
+docker kill nodejs
 
 ## Load testing Fortio
 ~/go/bin/fortio server -http-port 0.0.0.0:5000
@@ -14,13 +18,9 @@ UI: http://localhost:5000/fortio/
 
 10000/5000
 
-docker stats go-rajkot
-
-## Check docker logs
-docker logs go-rajkot
-
-## Kill Container
-docker kill go-rajkot
-
 ## Remove all container
 docker rm -f $(docker ps -aq)
+
+## Docker repo build
+docker build -t harshmanvar/gdg-rajkot:mac-build .
+docker push harshmanvar/gdg-rajkot:mac-build

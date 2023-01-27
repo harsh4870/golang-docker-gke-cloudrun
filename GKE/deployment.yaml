@@ -8,7 +8,7 @@ spec:
   ports:
   - name: http
     port: 80
-    targetPort: 8080
+    targetPort: 3000
   selector:
     app: hello-rajkot
     tier: backend
@@ -34,6 +34,6 @@ spec:
     spec:
       containers:
       - name: hello-container
-        image: harshmanvar/golang-rajkot-demo:7a57d12
+        image: harshmanvar/gdg-rajkot
         ports:
-        - containerPort: 8080
+        - containerPort: 3000

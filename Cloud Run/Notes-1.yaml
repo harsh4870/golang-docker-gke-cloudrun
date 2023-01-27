@@ -1,7 +1,7 @@
 ## GCR URI
-gcr.io/auto-x-244507/golang-rajkot-demo:v1
-Container Port : 8080
+gcr.io/auto-x-244507/gdg-rajkot:v1
+Container Port : 3000
 
 
-gcr.io/auto-x-244507/golang-rajkot-demo:v2
+gcr.io/auto-x-244507/gdg-rajkot:v2
 Container Port : 80
