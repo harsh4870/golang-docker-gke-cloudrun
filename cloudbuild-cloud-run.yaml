@@ -5,7 +5,7 @@ steps:
     args: ["push", "$_GCR_HOSTNAME/$PROJECT_ID/$_REPO_NAME:$SHORT_SHA"]
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: gcloud
-    args: ['run', 'deploy', 'hello-rajkot', '--image', '$_GCR_HOSTNAME/$PROJECT_ID/$_REPO_NAME:$SHORT_SHA', '--region', '$_DEPLOY_REGION']
+    args: ['run', 'deploy', 'hello-rajkot', '--image', '$_GCR_HOSTNAME/$PROJECT_ID/$_REPO_NAME:$SHORT_SHA', '--region', '$_DEPLOY_REGION', '--port', '3000']
 images:
   - '$_GCR_HOSTNAME/$PROJECT_ID/$_REPO_NAME:$SHORT_SHA'
 options:

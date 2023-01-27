@@ -34,6 +34,6 @@ spec:
     spec:
       containers:
       - name: hello-container
-        image: harshmanvar/gdg-rajkot
+        image: harshmanvar/gdg-rajkot:6571547
         ports:
         - containerPort: 3000
