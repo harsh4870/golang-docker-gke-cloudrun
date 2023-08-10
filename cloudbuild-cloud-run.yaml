@@ -10,6 +10,7 @@ images:
   - '$_GCR_HOSTNAME/$PROJECT_ID/$_REPO_NAME:$SHORT_SHA'
 options:
   substitutionOption: ALLOW_LOOSE
+  logging: CLOUD_LOGGING_ONLY
 substitutions:
   _GCR_HOSTNAME: gcr.io
   _DEPLOY_REGION: us-central1
