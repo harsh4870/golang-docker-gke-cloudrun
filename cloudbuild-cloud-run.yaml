@@ -1,18 +1,16 @@
 steps:
   - name: "gcr.io/cloud-builders/docker"
-    args: ["build", "-t", "$_GCR_HOSTNAME/$PROJECT_ID/$_REPO_NAME:$SHORT_SHA", "-f", "./Docker/Nodejs/Dockerfile", "./Docker/Nodejs"]
+    args: ["build", "-t", "$_GCR_HOSTNAME/$PROJECT_ID/$_REPO_NAME/$_REPO_NAME:$SHORT_SHA", "-f", "./Docker/Nodejs/Dockerfile", "./Docker/Nodejs"]
   - name: "gcr.io/cloud-builders/docker"
-    args: ["push", "$_GCR_HOSTNAME/$PROJECT_ID/$_REPO_NAME:$SHORT_SHA"]
+    args: ["push", "$_GCR_HOSTNAME/$PROJECT_ID/$_REPO_NAME/$_REPO_NAME:$SHORT_SHA"]
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: gcloud
-    args: ['run', 'deploy', 'hello-rajkot', '--image', '$_GCR_HOSTNAME/$PROJECT_ID/$_REPO_NAME:$SHORT_SHA', '--region', '$_DEPLOY_REGION', '--port', '3000']
+    args: ['run', 'deploy', 'hello-rajkot', '--image', '$_GCR_HOSTNAME/$PROJECT_ID/$_REPO_NAME/$_REPO_NAME:$SHORT_SHA', '--region', '$_DEPLOY_REGION', '--port', '3000']
 images:
-  - '$_GCR_HOSTNAME/$PROJECT_ID/$_REPO_NAME:$SHORT_SHA'
+  - '$_GCR_HOSTNAME/$PROJECT_ID/$_REPO_NAME/$_REPO_NAME:$SHORT_SHA'
 options:
   substitutionOption: ALLOW_LOOSE
   logging: CLOUD_LOGGING_ONLY
 substitutions:
-  _GCR_HOSTNAME: gcr.io
   _DEPLOY_REGION: us-central1
-  _REPO_NAME: gdg-rajkot
 
