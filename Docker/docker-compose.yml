@@ -51,7 +51,7 @@ services:
     healthcheck:
       test: ["CMD", "rabbitmqctl", "status"]
       interval: 100s
-      timeout: 11s
+      timeout: 12s
       retries: 10
     tty: true
     volumes:
