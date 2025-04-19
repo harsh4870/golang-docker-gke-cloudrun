@@ -8,7 +8,7 @@ const HOST = '0.0.0.0';
 const app = express();
 app.get('/', (req, res) => {
   var hostname = os.hostname();
-  res.send({Message: 'Hello World...!', Version: '1.0.1', Hostname: hostname});
+  res.send({Message: 'Hello World...!', Version: '1.0.2', Hostname: hostname});
 });
 
 app.listen(PORT, HOST);
